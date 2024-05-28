@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.login-btn {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    align-self: flex-end;
+    margin-left: auto; /* Added to fix alignment */
+}
+
+main {
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.invite-btn {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.about,
+.features-summary,
+.features,
+.commands,
+.jobs,
+.shop,
+.stats,
+.contact {
+    margin: 50px 0;
+}
+
+.about img,
+.features img,
+.commands img,
+.jobs img,
+.shop img,
+.contact img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.feature,
+.command,
+.job,
+.shop-item {
+    margin-bottom: 50px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+footer a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.stat {
+    margin-bottom: 20px;
+}
+
+.stat h2 {
+    font-size: 2em;
+}
+
+.stat p {
+    font-size: 1.5em;
+}
+
+.job-list,
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.job,
+.shop-item {
+    flex: 1 1 calc(33.333% - 40px);
+    background-color: #292929;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.job h2,
+.shop-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.job p,
+.shop-item p {
+    font-size: 1.2em;
+}

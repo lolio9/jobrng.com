@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Discord Job Bot</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #00acee;
+        }
+
+        .login-btn {
+            background-color: #5865F2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #4752C4;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .item {
+            background-color: #1a1a1a;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 2px solid #b0b0b0;
+        }
+
+        .premium .item {
+            border-color: #FFD700;
+        }
+
+        .rebirth .item {
+            border-color: #00FFFF;
+        }
+
+        .description {
+            color: #d3d3d3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="shop">
+            <h2>Shop Items</h2>
+            <p>Purchase items to boost your luck and increase your earnings. Explore our wide range of items available for purchase.</p>
+
+            <h3 class="common">Common Items</h3>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Charm</strong> - <span>$100</span>
+                    <p class="description">Boost: 1%<br>Description: Increases your luck by 1%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Rabbit's Foot</strong> - <span>$300</span>
+                    <p class="description">Boost: 2%<br>Description: Increases your luck by 2%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Four Leaf Clover</strong> - <span>$700</span>
+                    <p class="description">Boost: 3%<br>Description: Increases your luck by 3%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Horseshoe</strong> - <span>$1200</span>
+                    <p class="description">Boost: 5%<br>Description: Increases your luck by 5%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Coin</strong> - <span>$1800</span>
+                    <p class="description">Boost: 7%<br>Description: Increases your luck by 7%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Hat</strong> - <span>$2500</span>
+                    <p class="description">Boost: 10%<br>Description: Increases your luck by 10%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Socks</strong> - <span>$3300</span>
+                    <p class="description">Boost: 12%<br>Description: Increases your luck by 12%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Pen</strong> - <span>$4200</span>
+                    <p class="description">Boost: 15%<br>Description: Increases your luck by 15%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Shirt</strong> - <span>$5200</span>
+                    <p class="description">Boost: 18%<br>Description: Increases your luck by 18%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Shoes</strong> - <span>$6300</span>
+                    <p class="description">Boost: 21%<br>Description: Increases your luck by 21%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Bracelet</strong> - <span>$7500</span>
+                    <p class="description">Boost: 25%<br>Description: Increases your luck by 25%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Necklace</strong> - <span>$8800</span>
+                    <p class="description">Boost: 30%<br>Description: Increases your luck by 30%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Watch</strong> - <span>$10200</span>
+                    <p class="description">Boost: 35%<br>Description: Increases your luck by 35%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Ring</strong> - <span>$11700</span>
+                    <p class="description">Boost: 40%<br>Description: Increases your luck by 40%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Glasses</strong> - <span>$13300</span>
+                    <p class="description">Boost: 45%<br>Description: Increases your luck by 45%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Belt</strong> - <span>$15000</span>
+                    <p class="description">Boost: 50%<br>Description: Increases your luck by 50%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Keychain</strong> - <span>$16800</span>
+                    <p class="description">Boost: 55%<br>Description: Increases your luck by 55%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Stone</strong> - <span>$18700</span>
+                    <p class="description">Boost: 60%<br>Description: Increases your luck by 60%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Tattoo</strong> - <span>$20700</span>
+                    <p class="description">Boost: 65%<br>Description: Increases your luck by 65%.</p>
+                </div>
+            </div>
+            <div class="item common">
+                <div>
+                    <strong>Lucky Pet</strong> - <span>$22800</span>
+                    <p class="description">Boost: 70%<br>Description: Increases your luck by 70%.</p>
+                </div>
+            </div>
+
+            <h3 class="premium">Premium Items</h3>
+            <div class="item premium">
+                <div>
+                    <strong>Golden Horseshoe</strong> - <span>$100,000</span>
+                    <p class="description">Boost: 100%<br>Description: Increases your luck by 100%.</p>
+                </div>
+            </div>
+            <div class="item premium">
+                <div>
+                    <strong>Platinum Coin</strong> - <span>$250,000</span>
+                    <p class="description">Boost: 200%<br>Description: Increases your luck by 200%.</p>
+                </div>
+            </div>
+            <div class="item premium">
+                <div>
+                    <strong>Diamond Ring</strong> - <span>$500,000</span>
+                    <p class="description">Boost: 400%<br>Description: Increases your luck by 400%.</p>
+                </div>
+            </div>
+            <div class="item premium">
+                <div>
+                    <strong>Magic Wand</strong> - <span>$1,000,000</span>
+                    <p class="description">Boost: 800%<br>Description: Increases your luck by 800%.</p>
+                </div>
+            </div>
+            <div class="item premium">
+                <div>
+                    <strong>Genie's Lamp</strong> - <span>$2,500,000</span>
+                    <p class="description">Boost: 1500%<br>Description: Increases your luck by 1500%.</p>
+                </div>
+            </div>
+
+            <h3 class="rebirth">Rebirth Upgrades</h3>
+            <div class="item rebirth">
+                <div>
+                    <strong>x2 Chance</strong> - <span>$10</span>
+                    <p class="description">Doubles the chance of getting rare jobs.</p>
+                </div>
+            </div>
+            <div class="item rebirth">
+                <div>
+                    <strong>x1.5 Rebirth Tokens</strong> - <span>$15</span>
+                    <p class="description">Increases the number of rebirth tokens earned by 50%.</p>
+                </div>
+            </div>
+            <div class="item rebirth">
+                <div>
+                    <strong>x2 Salary</strong> - <span>$20</span>
+                    <p class="description">Doubles the hourly salary of all jobs.</p>
+                </div>
+            </div>
+            <div class="item rebirth">
+                <div>
+                    <strong>x2 Luck Boost</strong> - <span>$25</span>
+                    <p class="description">Doubles the luck boost from shop items.</p>
+                </div>
+            </div>
+            <div class="item rebirth">
+                <div>
+                    <strong>x1.5 Balance Gain</strong> - <span>$30</span>
+                    <p class="description">Increases balance gain by 50%.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

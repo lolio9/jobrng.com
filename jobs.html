@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Job Bot</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #00acee;
+        }
+
+        .login-btn {
+            background-color: #5865F2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #4752C4;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .job {
+            background-color: #1a1a1a;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            border: 2px solid;
+        }
+
+        .job.common { border-color: #b0b0b0; }
+        .job.uncommon { border-color: #00b0f4; }
+        .job.rare { border-color: #0084ff; }
+        .job.very-rare { border-color: #ff00ff; }
+        .job.epic { border-color: #ff0000; }
+        .job.legendary { border-color: #ffd700; }
+        .job.mystical { border-color: #00ff00; }
+        .job.mythical { border-color: #ff4500; }
+        .job.super-rich { border-color: #b0e0e6; }
+        .job.insane { border-color: #ff6347; }
+        .job.insanely-rare { border-color: #ff69b4; }
+        .job.super-legendary { border-color: #1e90ff; }
+        .job.sacrificial { border-color: #4b0082; }
+        .job.almost-impossible { border-color: #8b0000; }
+        .job.impossible { border-color: #0000ff; }
+        .job.secret {
+            border-image: linear-gradient(45deg, #6d6d6d, #9e9e9e, #d6d6d6, #9e9e9e, #6d6d6d) 1;
+        }
+        .job.developer-only {
+            background: linear-gradient(45deg, #ff5722, #ff9800, #ffeb3b, #cddc39, #8bc34a, #4caf50, #009688);
+            background-size: 400% 400%;
+            animation: rainbow-background 5s linear infinite;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes rainbow-background {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .job.developer-only::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/800x800');
+            background-size: cover;
+            mix-blend-mode: color-dodge;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .description {
+            color: #d3d3d3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="jobs">
+            <h2>Job Roles</h2>
+            <p>Explore the various job roles available in our bot. Each job comes with its own salary, rarity, and description.</p>
+
+            <h3 class="common">Common Jobs</h3>
+            <div class="job common">
+                <div>
+                    <strong>Janitor</strong> - <span>$10/hour</span>
+                    <p class="description">A janitor keeps buildings clean and maintained. They clean floors, windows, and restrooms.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Cashier</strong> - <span>$12/hour</span>
+                    <p class="description">A cashier handles payments and transactions at a store or restaurant.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Waiter</strong> - <span>$15/hour</span>
+                    <p class="description">A waiter serves food and beverages to customers in a restaurant.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Barista</strong> - <span>$14/hour</span>
+                    <p class="description">A barista prepares and serves coffee and other beverages.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Retail Associate</strong> - <span>$13/hour</span>
+                    <p class="description">A retail associate helps customers in a store, restocks shelves, and operates the cash register.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Security Guard</strong> - <span>$16/hour</span>
+                    <p class="description">A security guard monitors and protects property and people.</p>
+                </div>
+            </div>
+            <div class="job common">
+                <div>
+                    <strong>Receptionist</strong> - <span>$18/hour</span>
+                    <p class="description">A receptionist greets visitors and handles administrative tasks in an office.</p>
+                </div>
+            </div>
+
+            <h3 class="uncommon">Uncommon Jobs</h3>
+            <div class="job uncommon">
+                <div>
+                    <strong>Lab Technician</strong> - <span>$20/hour</span>
+                    <p class="description">A lab technician conducts experiments and analyses in a laboratory setting.</p>
+                </div>
+            </div>
+            <div class="job uncommon">
+                <div>
+                    <strong>Customer Service Representative</strong> - <span>$17/hour</span>
+                    <p class="description">A customer service representative assists customers with inquiries and complaints.</p>
+                </div>
+            </div>
+            <div class="job uncommon">
+                <div>
+                    <strong>Bookkeeper</strong> - <span>$22/hour</span>
+                    <p class="description">A bookkeeper maintains financial records and manages accounts.</p>
+                </div>
+            </div>
+            <div class="job uncommon">
+                <div>
+                    <strong>Personal Trainer</strong> - <span>$23/hour</span>
+                    <p class="description">A personal trainer helps clients achieve their fitness goals through personalized workout plans.</p>
+                </div>
+            </div>
+            <div class="job uncommon">
+                <div>
+                    <strong>Event Planner</strong> - <span>$28/hour</span>
+                    <p class="description">An event planner organizes and coordinates events such as weddings, conferences, and parties.</p>
+                </div>
+            </div>
+            <div class="job uncommon">
+                <div>
+                    <strong>Photographer</strong> - <span>$29/hour</span>
+                    <p class="description">A photographer captures images using cameras for various purposes.</p>
+                </div>
+            </div>
+
+            <h3 class="rare">Rare Jobs</h3>
+            <div class="job rare">
+                <div>
+                    <strong>Teacher</strong> - <span>$25/hour</span>
+                    <p class="description">A teacher educates students in a variety of subjects.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Graphic Designer</strong> - <span>$30/hour</span>
+                    <p class="description">A graphic designer creates visual content for print and digital media.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Content Writer</strong> - <span>$28/hour</span>
+                    <p class="description">A content writer produces written content for websites, blogs, and other publications.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Plumber</strong> - <span>$22/hour</span>
+                    <p class="description">A plumber installs and repairs water supply lines, waste disposal systems, and related appliances.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Electrician</strong> - <span>$27/hour</span>
+                    <p class="description">An electrician installs, maintains, and repairs electrical systems and equipment.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Mechanic</strong> - <span>$24/hour</span>
+                    <p class="description">A mechanic repairs and maintains vehicles and machinery.</p>
+                </div>
+            </div>
+            <div class="job rare">
+                <div>
+                    <strong>Chef</strong> - <span>$26/hour</span>
+                    <p class="description">A chef prepares meals in a restaurant or other food service establishment.</p>
+                </div>
+            </div>
+
+            <h3 class="very-rare">Very Rare Jobs</h3>
+            <div class="job very-rare">
+                <div>
+                    <strong>Veterinarian</strong> - <span>$35/hour</span>
+                    <p class="description">A veterinarian diagnoses and treats illnesses in animals.</p>
+                </div>
+            </div>
+            <div class="job very-rare">
+                <div>
+                    <strong>Architect</strong> - <span>$40/hour</span>
+                    <p class="description">An architect designs buildings and other structures.</p>
+                </div>
+            </div>
+            <div class="job very-rare">
+                <div>
+                    <strong>Pharmacist</strong> - <span>$45/hour</span>
+                    <p class="description">A pharmacist dispenses prescription medications and provides healthcare advice.</p>
+                </div>
+            </div>
+            <div class="job very-rare">
+                <div>
+                    <strong>Financial Analyst</strong> - <span>$38/hour</span>
+                    <p class="description">A financial analyst assesses financial data to help businesses make decisions.</p>
+                </div>
+            </div>
+            <div class="job very-rare">
+                <div>
+                    <strong>Marketing Manager</strong> - <span>$42/hour</span>
+                    <p class="description">A marketing manager oversees marketing campaigns and strategies for a company.</p>
+                </div>
+            </div>
+            <div class="job very-rare">
+                <div>
+                    <strong>HR Manager</strong> - <span>$37/hour</span>
+                    <p class="description">An HR manager manages employee relations and human resources policies.</p>
+                </div>
+            </div>
+
+            <h3 class="epic">Epic Jobs</h3>
+            <div class="job epic">
+                <div>
+                    <strong>Web Developer</strong> - <span>$35/hour</span>
+                    <p class="description">A web developer builds and maintains websites and web applications.</p>
+                </div>
+            </div>
+            <div class="job epic">
+                <div>
+                    <strong>Software Developer</strong> - <span>$40/hour</span>
+                    <p class="description">A software developer creates software applications for various platforms.</p>
+                </div>
+            </div>
+            <div class="job epic">
+                <div>
+                    <strong>Engineer</strong> - <span>$38/hour</span>
+                    <p class="description">An engineer designs, builds, and maintains structures, machines, and systems.</p>
+                </div>
+            </div>
+            <div class="job epic">
+                <div>
+                    <strong>Project Manager</strong> - <span>$45/hour</span>
+                    <p class="description">A project manager oversees projects to ensure they are completed on time and within budget.</p>
+                </div>
+            </div>
+
+            <h3 class="legendary">Legendary Jobs</h3>
+            <div class="job legendary">
+                <div>
+                    <strong>Data Scientist</strong> - <span>$50/hour</span>
+                    <p class="description">A data scientist analyzes and interprets complex data to help make business decisions.</p>
+                </div>
+            </div>
+            <div class="job legendary">
+                <div>
+                    <strong>Doctor</strong> - <span>$55/hour</span>
+                    <p class="description">A doctor diagnoses and treats illnesses and injuries.</p>
+                </div>
+            </div>
+            <div class="job legendary">
+                <div>
+                    <strong>Lawyer</strong> - <span>$60/hour</span>
+                    <p class="description">A lawyer provides legal advice and represents clients in legal matters.</p>
+                </div>
+            </div>
+
+            <h3 class="mystical">Mystical Jobs</h3>
+            <div class="job mystical">
+                <div>
+                    <strong>Surgeon</strong> - <span>$70/hour</span>
+                    <p class="description">A surgeon performs surgical operations to treat injuries and diseases.</p>
+                </div>
+            </div>
+            <div class="job mystical">
+                <div>
+                    <strong>Astronaut</strong> - <span>$150/hour</span>
+                    <p class="description">An astronaut travels to space and conducts scientific research.</p>
+                </div>
+            </div>
+            <div class="job mystical">
+                <div>
+                    <strong>Neuroscientist</strong> - <span>$100/hour</span>
+                    <p class="description">A neuroscientist studies the brain and nervous system.</p>
+                </div>
+            </div>
+            <div class="job mystical">
+                <div>
+                    <strong>Quantum Physicist</strong> - <span>$120/hour</span>
+                    <p class="description">A quantum physicist researches and studies the properties of quantum mechanics.</p>
+                </div>
+            </div>
+            <div class="job mystical">
+                <div>
+                    <strong>Paleontologist</strong> - <span>$90/hour</span>
+                    <p class="description">A paleontologist studies the history of life on Earth through fossils.</p>
+                </div>
+            </div>
+            <div class="job mystical">
+                <div>
+                    <strong>Marine Biologist</strong> - <span>$80/hour</span>
+                    <p class="description">A marine biologist studies ocean ecosystems and marine life.</p>
+                </div>
+            </div>
+
+            <h3 class="mythical">Mythical Jobs</h3>
+            <div class="job mythical">
+                <div>
+                    <strong>CEO</strong> - <span>$100/hour</span>
+                    <p class="description">A CEO oversees the operations of a company and makes major corporate decisions.</p>
+                </div>
+            </div>
+            <div class="job mythical">
+                <div>
+                    <strong>Investor</strong> - <span>$150/hour</span>
+                    <p class="description">An investor allocates capital to businesses with the expectation of receiving financial returns.</p>
+                </div>
+            </div>
+
+            <h3 class="super-rich">Super Rich Jobs</h3>
+            <div class="job super-rich">
+                <div>
+                    <strong>Entrepreneur</strong> - <span>$200/hour</span>
+                    <p class="description">An entrepreneur creates and manages new business ventures.</p>
+                </div>
+            </div>
+            <div class="job super-rich">
+                <div>
+                    <strong>Actor</strong> - <span>$250/hour</span>
+                    <p class="description">An actor performs in movies, television shows, theater productions, and other media.</p>
+                </div>
+            </div>
+            <div class="job super-rich">
+                <div>
+                    <strong>Professional Athlete</strong> - <span>$300/hour</span>
+                    <p class="description">A professional athlete competes in sports and earns income through competitions and endorsements.</p>
+                </div>
+            </div>
+
+            <h3 class="insane">Insane Jobs</h3>
+            <div class="job insane">
+                <div>
+                    <strong>Futurist</strong> - <span>$250/hour</span>
+                    <p class="description">A futurist predicts and analyzes future trends and developments.</p>
+                </div>
+            </div>
+            <div class="job insane">
+                <div>
+                    <strong>Cryptographer</strong> - <span>$200/hour</span>
+                    <p class="description">A cryptographer designs and analyzes secure communication systems.</p>
+                </div>
+            </div>
+            <div class="job insane">
+                <div>
+                    <strong>AI Researcher</strong> - <span>$220/hour</span>
+                    <p class="description">An AI researcher develops and studies artificial intelligence technologies.</p>
+                </div>
+            </div>
+            <div class="job insane">
+                <div>
+                    <strong>Astrobiologist</strong> - <span>$240/hour</span>
+                    <p class="description">An astrobiologist studies the possibility of life beyond Earth.</p>
+                </div>
+            </div>
+            <div class="job insane">
+                <div>
+                    <strong>Time Traveler</strong> - <span>$500/hour</span>
+                    <p class="description">A time traveler explores different periods in history and the future.</p>
+                </div>
+            </div>
+            <div class="job insane">
+                <div>
+                    <strong>Mind Reader</strong> - <span>$450/hour</span>
+                    <p class="description">A mind reader has the ability to read and interpret thoughts.</p>
+                </div>
+            </div>
+
+            <h3 class="insanely-rare">Insanely Rare Jobs</h3>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Cybersecurity Expert</strong> - <span>$60/hour</span>
+                    <p class="description">A cybersecurity expert protects computer systems and networks from attacks.</p>
+                </div>
+            </div>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Blockchain Developer</strong> - <span>$70/hour</span>
+                    <p class="description">A blockchain developer builds decentralized applications and systems.</p>
+                </div>
+            </div>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Space Explorer</strong> - <span>$300/hour</span>
+                    <p class="description">A space explorer travels and researches space beyond our solar system.</p>
+                </div>
+            </div>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Superstar DJ</strong> - <span>$280/hour</span>
+                    <p class="description">A superstar DJ performs at major music events worldwide.</p>
+                </div>
+            </div>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Celebrity Chef</strong> - <span>$270/hour</span>
+                    <p class="description">A celebrity chef is a renowned chef with television and media presence.</p>
+                </div>
+            </div>
+            <div class="job insanely-rare">
+                <div>
+                    <strong>Luxury Fashion Designer</strong> - <span>$290/hour</span>
+                    <p class="description">A luxury fashion designer creates high-end fashion collections.</p>
+                </div>
+            </div>
+
+            <h3 class="epicker">Epicker Jobs</h3>
+            <div class="job epicker">
+                <div>
+                    <strong>Rocket Scientist</strong> - <span>$150/hour</span>
+                    <p class="description">A rocket scientist designs and builds rockets and spacecraft.</p>
+                </div>
+            </div>
+            <div class="job epicker">
+                <div>
+                    <strong>Geneticist</strong> - <span>$140/hour</span>
+                    <p class="description">A geneticist studies genes and heredity.</p>
+                </div>
+            </div>
+            <div class="job epicker">
+                <div>
+                    <strong>Climate Scientist</strong> - <span>$130/hour</span>
+                    <p class="description">A climate scientist studies climate patterns and changes.</p>
+                </div>
+            </div>
+            <div class="job epicker">
+                <div>
+                    <strong>Robotics Engineer</strong> - <span>$125/hour</span>
+                    <p class="description">A robotics engineer designs and builds robots and automated systems.</p>
+                </div>
+            </div>
+            <div class="job epicker">
+                <div>
+                    <strong>Astrophysicist</strong> - <span>$155/hour</span>
+                    <p class="description">An astrophysicist studies the physical properties of celestial objects.</p>
+                </div>
+            </div>
+            <div class="job epicker">
+                <div>
+                    <strong>AI Engineer</strong> - <span>$160/hour</span>
+                    <p class="description">An AI engineer develops artificial intelligence systems and applications.</p>
+                </div>
+            </div>
+
+            <h3 class="super-legendary">Super Legendary Jobs</h3>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Mathematician</strong> - <span>$90/hour</span>
+                    <p class="description">A mathematician studies and applies mathematical principles and theories.</p>
+                </div>
+            </div>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Philosopher</strong> - <span>$85/hour</span>
+                    <p class="description">A philosopher studies and discusses fundamental questions about existence, knowledge, and ethics.</p>
+                </div>
+            </div>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Theoretical Physicist</strong> - <span>$175/hour</span>
+                    <p class="description">A theoretical physicist develops theories to explain the fundamental laws of nature.</p>
+                </div>
+            </div>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Linguist</strong> - <span>$80/hour</span>
+                    <p class="description">A linguist studies languages and their structure.</p>
+                </div>
+            </div>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Mythbuster</strong> - <span>$200/hour</span>
+                    <p class="description">A mythbuster investigates and debunks myths and legends.</p>
+                </div>
+            </div>
+            <div class="job super-legendary">
+                <div>
+                    <strong>Space Medic</strong> - <span>$180/hour</span>
+                    <p class="description">A space medic provides medical care to astronauts in space.</p>
+                </div>
+            </div>
+
+            <h3 class="sacrificial">Sacrificial Jobs</h3>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Immortalist</strong> - <span>$500/hour</span>
+                    <p class="description">An immortalist researches ways to achieve immortality.</p>
+                </div>
+            </div>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Alchemist</strong> - <span>$450/hour</span>
+                    <p class="description">An alchemist attempts to transform base metals into gold and discover the elixir of life.</p>
+                </div>
+            </div>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Dragon Tamer</strong> - <span>$600/hour</span>
+                    <p class="description">A dragon tamer trains and controls dragons.</p>
+                </div>
+            </div>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Alien Ambassador</strong> - <span>$700/hour</span>
+                    <p class="description">An alien ambassador communicates and negotiates with extraterrestrial beings.</p>
+                </div>
+            </div>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Time Lord</strong> - <span>$800/hour</span>
+                    <p class="description">A time lord has the ability to travel through and manipulate time.</p>
+                </div>
+            </div>
+            <div class="job sacrificial">
+                <div>
+                    <strong>Dimensional Traveler</strong> - <span>$750/hour</span>
+                    <p class="description">A dimensional traveler explores parallel universes and alternate dimensions.</p>
+                </div>
+            </div>
+
+            <h3 class="almost-impossible">Almost Impossible Jobs</h3>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Eternal Guardian</strong> - <span>$1000/hour</span>
+                    <p class="description">An eternal guardian protects the balance of the universe.</p>
+                </div>
+            </div>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Omniscient Being</strong> - <span>$1200/hour</span>
+                    <p class="description">An omniscient being has infinite knowledge and understanding of everything.</p>
+                </div>
+            </div>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Reality Shaper</strong> - <span>$1500/hour</span>
+                    <p class="description">A reality shaper has the power to alter the fabric of reality.</p>
+                </div>
+            </div>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Cosmic Creator</strong> - <span>$2000/hour</span>
+                    <p class="description">A cosmic creator is responsible for the creation of universes.</p>
+                </div>
+            </div>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Infinity Weaver</strong> - <span>$1800/hour</span>
+                    <p class="description">An infinity weaver manipulates infinite possibilities and outcomes.</p>
+                </div>
+            </div>
+            <div class="job almost-impossible">
+                <div>
+                    <strong>Ultimate Being</strong> - <span>$2500/hour</span>
+                    <p class="description">An ultimate being possesses unlimited power and abilities.</p>
+                </div>
+            </div>
+
+            <h3 class="impossible">Impossible Jobs</h3>
+            <div class="job impossible">
+                <div>
+                    <strong>Universal Architect</strong> - <span>$3000/hour</span>
+                    <p class="description">A universal architect designs and constructs entire universes.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Galactic Emperor</strong> - <span>$5000/hour</span>
+                    <p class="description">A galactic emperor rules over a galaxy with absolute power.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Ethereal Being</strong> - <span>$4000/hour</span>
+                    <p class="description">An ethereal being exists beyond the physical realm and can manipulate reality.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Void Wanderer</strong> - <span>$3500/hour</span>
+                    <p class="description">A void wanderer explores and navigates the void between universes.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Dimension Ruler</strong> - <span>$4500/hour</span>
+                    <p class="description">A dimension ruler governs and controls multiple dimensions.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Omnipotent Being</strong> - <span>$10000/hour</span>
+                    <p class="description">An omnipotent being has unlimited power and can do anything.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Guardian of Time</strong> - <span>$7000/hour</span>
+                    <p class="description">A guardian of time protects and maintains the timeline of the universe.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Quantum Entangler</strong> - <span>$6000/hour</span>
+                    <p class="description">A quantum entangler manipulates quantum states and entanglement.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Soul Reaper</strong> - <span>$5500/hour</span>
+                    <p class="description">A soul reaper collects and guides souls to the afterlife.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Astral Projectionist</strong> - <span>$5000/hour</span>
+                    <p class="description">An astral projectionist can project their consciousness to different places and dimensions.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Galactic Traveler</strong> - <span>$8000/hour</span>
+                    <p class="description">A galactic traveler explores and visits different galaxies.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Multiverse Explorer</strong> - <span>$9000/hour</span>
+                    <p class="description">A multiverse explorer navigates and studies multiple universes.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Time Manipulator</strong> - <span>$11000/hour</span>
+                    <p class="description">A time manipulator can alter and control the flow of time.</p>
+                </div>
+            </div>
+            <div class="job impossible">
+                <div>
+                    <strong>Dimension Weaver</strong> - <span>$7500/hour</span>
+                    <p class="description">A dimension weaver creates and shapes dimensions.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Entity of Eternity</strong> - <span>$12000/hour</span>
+                    <p class="description">An entity of eternity exists beyond time and space.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Reality Architect</strong> - <span>$13000/hour</span>
+                    <p class="description">A reality architect designs and constructs realities.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Void Shaper</strong> - <span>$9000/hour</span>
+                    <p class="description">A void shaper manipulates the void and creates something from nothing.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Cosmic Observer</strong> - <span>$8500/hour</span>
+                    <p class="description">A cosmic observer witnesses and records cosmic events and phenomena.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Ultimate Creator</strong> - <span>$14000/hour</span>
+                    <p class="description">An ultimate creator has the power to create anything from nothing.</p>
+                    </div>
+                    </div>
+                    <div class="job impossible">
+                    <div>
+                    <strong>Existence Guardian</strong> - <span>$15000/hour</span>
+                    <p class="description">An existence guardian protects the fabric of existence.</p>
+                    </div>
+                    </div>
+                    <h3 class="secret">Secret Jobs</h3>
+                    <div class="job secret">
+                        <div>
+                            <strong>Walter White</strong> - <span>$69420/hour</span>
+                            <p class="description">This is a very good chemist who makes crystal meth.</p>
+                        </div>
+                    </div>
+                    <div class="job secret">
+                        <div>
+                            <strong>Discord Mod</strong> - <span>$10/hour</span>
+                            <p class="description">A desperate Moderator who is obsessed with e-kittens and likes playing with their meat during working hours @5oui.</p>
+                        </div>
+                    </div>
+            
+                    <h3 class="developer-only">Developer Only Jobs</h3>
+                    <div class="job developer-only">
+                        <div>
+                            <strong>Dumpling Maker</strong> - <span>$45/hour</span>
+                            <p class="description">You make dumplings.</p>
+                        </div>
+                    </div>
+                    <div class="job developer-only">
+                        <div>
+                            <strong>(Coming Soon)</strong> - <span>$N/A/hour</span>
+                            <p class="description">Coming Soon.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer>
+                <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
+            </footer>
+        </body>
+        </html>

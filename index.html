@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Job Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #00acee;
+        }
+
+        main {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .invite-btn {
+            background-color: #5865F2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .invite-btn:hover {
+            background-color: #4752C4;
+            color: #fff;
+        }
+
+        .about {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        .about p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 1rem 0;
+        }
+
+        .about ul {
+            list-style-type: disc;
+            margin: 1rem 2rem;
+        }
+
+        .about li {
+            margin: 0.5rem 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #7289da;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #5b6eae;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Discord Job Bot</h1>
+            <p>This is a powerful and feature-rich bot for Discord.</p>
+            <a class="invite-btn" href="https://discord.com/oauth2/authorize?client_id=1242268554699604078&scope=bot&permissions=applications.commands+bot">Invite Bot</a>
+        </section>
+        <section class="about">
+            <h2>About Discord Job Bot</h2>
+            <p>Our bot offers a variety of features including job roles, earning balance, shop items, and more. With Discord Job Bot, you can enhance your Discord server with an interactive job system. Users can take on different roles, earn virtual currency, purchase items from the shop, and participate in various activities. Whether you are managing a small community or a large server, Discord Job Bot is designed to add fun and functionality.</p>
+            <p>Features include:</p>
+            <ul>
+                <li>Multiple job roles with unique benefits</li>
+                <li>Balance system to track earnings and expenditures</li>
+                <li>Shop with a variety of items to purchase</li>
+                <li>Customizable commands to fit your server's needs</li>
+                <li>Regular updates and new features</li>
+                <li>Comprehensive statistics and analytics</li>
+                <li>Easy to use and set up</li>
+                <li>Secure and reliable performance</li>
+            </ul>
+            <img src="https://via.placeholder.com/800x600?text=About+Image" alt="About Image" class="about-image">
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

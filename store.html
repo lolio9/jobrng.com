@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Job Bot Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            color: #00acee;
+        }
+
+        .login-btn {
+            background-color: #5865F2;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #4752C4;
+            color: #fff;
+        }
+
+        .container {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #00ff99;
+        }
+
+        .items, .subscriptions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .item, .subscription {
+            background-color: #1c1c1c;
+            border: 2px solid #333333;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            margin: 10px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .item::before, .subscription::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            border: 2px dashed #00ff99;
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .item:hover, .subscription:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 153, 0.2);
+        }
+
+        .item h3, .subscription h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: #00ff99;
+            border: none;
+            border-radius: 5px;
+            color: #000000;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #00cc7a;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #7289da;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #5b6eae;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 class="section-title">One-Time Items</h2>
+        <div class="items">
+            <div class="item">
+                <h3>Job Pack</h3>
+                <div class="price">$4.99</div>
+                <button class="btn">Buy Now</button>
+            </div>
+            <div class="item">
+                <h3>Money Pack</h3>
+                <div class="price">$9.99</div>
+                <button class="btn">Buy Now</button>
+            </div>
+            <div class="item">
+                <h3>Starter Pack</h3>
+                <div class="price">$14.99</div>
+                <button class="btn">Buy Now</button>
+            </div>
+        </div>
+        <h2 class="section-title">Subscriptions</h2>
+        <div class="subscriptions">
+            <div class="subscription">
+                <h3>Basic Subscription</h3>
+                <div class="price">$2.99 per month</div>
+                <button class="btn">Subscribe Now</button>
+            </div>
+            <div class="subscription">
+                <h3>Pro Subscription</h3>
+                <div class="price">$5.99 per month</div>
+                <button class="btn">Subscribe Now</button>
+            </div>
+            <div class="subscription">
+                <h3>Elite Subscription</h3>
+                <div class="price">$9.99 per month</div>
+                <button class="btn">Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
