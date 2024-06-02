@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: orange; }
+            40% { color: yellow; }
+            60% { color: green; }
+            80% { color: blue; }
+            100% { color: purple; }
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -71,15 +80,61 @@
         }
 
         .credits h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             font-family: 'Verdana', sans-serif;
+            color: #00acee;
+        }
+
+        .credits h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #f39c12;
         }
 
         .credits p {
-            font-size: 1rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
             text-align: justify;
+        }
+
+        .credits ul {
+            list-style-type: disc;
+            margin: 1rem 2rem;
+        }
+
+        .credits li {
+            margin: 0.5rem 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+        }
+
+        .rainbow {
+            animation: rainbow 3s infinite;
+        }
+
+        .developer {
+            color: #ff69b4;
+        }
+
+        .jobideas {
+            color: #1e90ff;
+        }
+
+        .tester {
+            color: #32cd32;
+        }
+
+        .support {
+            color: #ffa500;
+        }
+
+        .opensource {
+            color: #8a2be2;
+        }
+
+        .thanks {
+            color: #ff4500;
         }
 
         footer {
@@ -119,22 +174,44 @@
                 <li><a href="stats.html">Stats</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="store.html">Store</a></li>
-                <li><a href="credits.html">Credits</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="credits">
             <h2>Credits</h2>
-            <p>This project was made possible by the contributions of the following individuals and resources:</p>
+            <h3>Development Team</h3>
             <ul>
-                <li>Development Team: Jane Doe, John Smith, Alex Johnson</li>
-                <li>Design Team: Mary White, Steve Brown</li>
-                <li>Project Manager: Rachel Green</li>
-                <li>Community Support: Discord Community Members</li>
-                <li>Open Source Resources: Various contributors from GitHub</li>
-                <li>Special Thanks: All beta testers and feedback providers</li>
+                <li class="developer rainbow">Jane Doe</li>
+                <li class="developer rainbow">John Smith</li>
+                <li class="developer rainbow">Alex Johnson</li>
             </ul>
+            <p>Our developers work tirelessly to bring new features and maintain the bot. If you're interested in joining our development team, please contact us through our <a href="contact.html">contact page</a> with your portfolio and experience.</p>
+
+            <h3>Job Ideas Team</h3>
+            <ul>
+                <li class="jobideas">anna_wowow</li>
+                <li class="jobideas">8oui</li>
+            </ul>
+            <p>Designers ensure the bot looks great and is user-friendly. If you have a knack for design and want to contribute, reach out to us through the <a href="contact.html">contact page</a> with your portfolio.</p>
+
+            <h3>Tester Team</h3>
+            <ul>
+                <li class="tester">anna_wowow</li>
+            </ul>
+            <p>The tester team ensures everything works smoothly. If you are interested in testing new features and providing feedback, please contact us through our <a href="contact.html">contact page</a>.</p>
+
+            <h3>Community Support</h3>
+            <ul>
+                <li class="support">Discord Community Members</li>
+            </ul>
+            <p>We couldn't do this without the support of our community. Join our Discord server to provide feedback, report bugs, and help other users.</p>
+
+            <h3>Special Thanks</h3>
+            <ul>
+                <li class="thanks">All beta testers and feedback providers</li>
+            </ul>
+            <p>Special thanks to everyone who tested the bot and provided invaluable feedback. Your support helps us improve continuously.</p>
         </section>
     </main>
     <footer>
