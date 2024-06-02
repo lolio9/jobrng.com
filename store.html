@@ -273,6 +273,57 @@
             margin-top: 20px;
         }
 
+        /* Checkout Form Styles */
+        .checkout-container {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .checkout-container h2 {
+            margin-top: 0;
+            color: #00ffab;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="text"] {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ffab;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #00e69b;
+        }
+
     </style>
 </head>
 <body>
@@ -345,9 +396,24 @@
         </div>
     </div>
     <div id="checkout" class="checkout">
-        <h2>Checkout</h2>
-        <p>Insert credit card information</p>
-        <button id="final-buy-button">Buy Now</button>
+        <div class="checkout-container">
+            <h2>Checkout</h2>
+            <form>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Expiration Date</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123">
+                </div>
+                <button type="submit" class="checkout-btn">Buy Now</button>
+            </form>
+        </div>
     </div>
     <script>
         let cart = {};
