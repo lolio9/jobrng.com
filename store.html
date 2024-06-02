@@ -166,6 +166,40 @@
         footer a:hover {
             color: #5b6eae;
         }
+
+        #cart-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #00ff99;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        #cart {
+            display: none;
+            position: fixed;
+            right: 10px;
+            bottom: 60px;
+            background-color: #333;
+            padding: 20px;
+            border: 2px solid #00ff99;
+            z-index: 1000;
+        }
+
+        #checkout {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border: 2px solid #00ff99;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -187,43 +221,142 @@
     <div class="container">
         <h2 class="section-title">One-Time Items</h2>
         <div class="items">
-            <div class="item">
+            <div class="item" data-item="Job Pack">
                 <h3>Job Pack</h3>
                 <div class="price">$4.99</div>
-                <button class="btn">Buy Now</button>
+                <button class="btn buy-now">Buy Now</button>
             </div>
-            <div class="item">
+            <div class="item" data-item="Money Pack">
                 <h3>Money Pack</h3>
                 <div class="price">$9.99</div>
-                <button class="btn">Buy Now</button>
+                <button class="btn buy-now">Buy Now</button>
             </div>
-            <div class="item">
+            <div class="item" data-item="Starter Pack">
                 <h3>Starter Pack</h3>
                 <div class="price">$14.99</div>
-                <button class="btn">Buy Now</button>
+                <button class="btn buy-now">Buy Now</button>
             </div>
         </div>
         <h2 class="section-title">Subscriptions</h2>
         <div class="subscriptions">
-            <div class="subscription">
+            <div class="subscription" data-item="Basic Subscription">
                 <h3>Basic Subscription</h3>
                 <div class="price">$2.99 per month</div>
-                <button class="btn">Subscribe Now</button>
+                <button class="btn buy-now">Subscribe Now</button>
             </div>
-            <div class="subscription">
+            <div class="subscription" data-item="Pro Subscription">
                 <h3>Pro Subscription</h3>
                 <div class="price">$5.99 per month</div>
-                <button class="btn">Subscribe Now</button>
+                <button class="btn buy-now">Subscribe Now</button>
             </div>
-            <div class="subscription">
+            <div class="subscription" data-item="Elite Subscription">
                 <h3>Elite Subscription</h3>
                 <div class="price">$9.99 per month</div>
-                <button class="btn">Subscribe Now</button>
+                <button class="btn buy-now">Subscribe Now</button>
             </div>
         </div>
     </div>
     <footer>
         <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </footer>
+    <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+    <div id="cart" class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <button id="checkout-button">Checkout</button>
+    </div>
+    <div id="checkout" class="checkout">
+        <h2>Checkout</h2>
+        <p>Insert credit card information</p>
+        <button id="final-buy-button">Buy Now</button>
+    </div>
+    <script>
+        let cart = {};
+        const cartButton = document.getElementById('cart-button');
+        const cartElement = document.getElementById('cart');
+        const cartItemsElement = document.getElementById('cart-items');
+        const cartCountElement = document.getElementById('cart-count');
+        const checkoutButton = document.getElementById('checkout-button');
+        const checkoutElement = document.getElementById('checkout');
+        const finalBuyButton = document.getElementById('final-buy-button');
+
+        document.querySelectorAll('.buy-now').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const item = event.target.closest('.item, .subscription').dataset.item;
+                if (cart[item]) {
+                    cart[item]++;
+                } else {
+                    cart[item] = 1;
+                }
+                updateCart();
+                // Animation
+                const rect = event.target.getBoundingClientRect();
+                const cartRect = cartButton.getBoundingClientRect();
+                const clone = event.target.cloneNode(true);
+                document.body.appendChild(clone);
+                clone.style.position = 'absolute';
+                clone.style.left = `${rect.left}px`;
+                clone.style.top = `${rect.top}px`;
+                clone.style.transition = 'all 0.5s ease-in-out';
+                setTimeout(() => {
+                    clone.style.left = `${cartRect.left}px`;
+                    clone.style.top = `${cartRect.top}px`;
+                    clone.style.transform = 'scale(0)';
+                    clone.style.opacity = '0';
+                }, 10);
+                setTimeout(() => {
+                    document.body.removeChild(clone);
+                }, 510);
+            });
+        });
+
+        cartButton.addEventListener('click', () => {
+            cartElement.style.display = cartElement.style.display === 'block' ? 'none' : 'block';
+            renderCartItems();
+        });
+
+        checkoutButton.addEventListener('click', () => {
+            checkoutElement.style.display = 'block';
+            cartElement.style.display = 'none';
+        });
+
+        finalBuyButton.addEventListener('click', () => {
+            alert('Redirecting to bank for payment');
+            // Insert actual payment logic here
+        });
+
+        function updateCart() {
+            const itemCount = Object.values(cart).reduce((acc, count) => acc + count, 0);
+            cartCountElement.textContent = itemCount;
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            cartItemsElement.innerHTML = '';
+            for (const [item, count] of Object.entries(cart)) {
+                const cartItem = document.createElement('div');
+                cartItem.textContent = `${item} (${count})`;
+                const countSelect = document.createElement('select');
+                for (let i = 0; i <= 10; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    if (i === count) option.selected = true;
+                    countSelect.appendChild(option);
+                }
+                countSelect.addEventListener('change', (event) => {
+                    const newCount = parseInt(event.target.value);
+                    if (newCount === 0) {
+                        delete cart[item];
+                    } else {
+                        cart[item] = newCount;
+                    }
+                    updateCart();
+                });
+                cartItem.appendChild(countSelect);
+                cartItemsElement.appendChild(cartItem);
+            }
+        }
+    </script>
 </body>
 </html>
