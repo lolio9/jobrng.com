@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Discord Job Bot</title>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Job Bot</title>
     <style>
         body {
             background-color: #121212;
@@ -138,7 +144,36 @@
         .description {
             color: #d3d3d3;
         }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li a {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+        }
     </style>
+</head>
+
 </head>
 <body>
     <header>
@@ -825,13 +860,5 @@
             <footer>
                 <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
             </footer>
-            <script>
-                const navToggle = document.querySelector('.nav-toggle');
-                const navLinks = document.querySelector('nav ul');
-            
-                navToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                });
-            </script>
         </body>
         </html>
