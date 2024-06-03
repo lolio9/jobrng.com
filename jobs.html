@@ -6,19 +6,24 @@
     <title>Discord Job Bot</title>
     <style>
         body {
-            background-color: #121212;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 14px; /* Smaller base font size to zoom out the site */
         }
-
+    
         header {
             background-color: #333;
             color: #fff;
             padding: 1rem 0;
+            position: relative;
         }
-
+    
         nav {
             display: flex;
             justify-content: space-between;
@@ -27,7 +32,13 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
-
+    
+        .nav-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    
         nav ul {
             list-style: none;
             display: flex;
@@ -35,11 +46,11 @@
             margin: 0;
             padding: 0;
         }
-
+    
         nav ul li {
             position: relative;
         }
-
+    
         nav ul li a {
             color: #fff;
             text-decoration: none;
@@ -47,102 +58,86 @@
             display: block;
             transition: background-color 0.3s, color 0.3s;
         }
-
+    
         nav ul li a:hover {
             background-color: #555;
             color: #00acee;
         }
-
-        .login-btn {
-            background-color: #5865F2;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+    
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+    
+            nav ul {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+    
+            nav ul.active {
+                display: flex;
+            }
+    
+            nav ul li a {
+                padding: 1rem;
+                text-align: center;
+            }
         }
-
-        .login-btn:hover {
-            background-color: #4752C4;
-            color: #fff;
+    
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+    
+            .hero p {
+                font-size: 1rem;
+            }
+    
+            .about h2 {
+                font-size: 1.5rem;
+            }
+    
+            .about p {
+                font-size: 0.9rem;
+            }
+    
+            .about img {
+                max-width: 100%;
+            }
         }
-
-        footer {
-            background-color: #1a1a1a;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .job {
-            background-color: #1a1a1a;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            border: 2px solid;
-        }
-
-        .job.common { border-color: #b0b0b0; }
-        .job.uncommon { border-color: #00b0f4; }
-        .job.rare { border-color: #0084ff; }
-        .job.very-rare { border-color: #ff00ff; }
-        .job.epic { border-color: #ff0000; }
-        .job.legendary { border-color: #ffd700; }
-        .job.mystical { border-color: #00ff00; }
-        .job.mythical { border-color: #ff4500; }
-        .job.super-rich { border-color: #b0e0e6; }
-        .job.insane { border-color: #ff6347; }
-        .job.insanely-rare { border-color: #ff69b4; }
-        .job.super-legendary { border-color: #1e90ff; }
-        .job.sacrificial { border-color: #4b0082; }
-        .job.almost-impossible { border-color: #8b0000; }
-        .job.impossible { border-color: #0000ff; }
-        .job.secret {
-            border-image: linear-gradient(45deg, #6d6d6d, #9e9e9e, #d6d6d6, #9e9e9e, #6d6d6d) 1;
-        }
-        .job.developer-only {
-            background: linear-gradient(45deg, #ff5722, #ff9800, #ffeb3b, #cddc39, #8bc34a, #4caf50, #009688);
-            background-size: 400% 400%;
-            animation: rainbow-background 5s linear infinite;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes rainbow-background {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .job.developer-only::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/random/800x800');
-            background-size: cover;
-            mix-blend-mode: color-dodge;
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .description {
-            color: #d3d3d3;
+    
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+    
+            .hero p {
+                font-size: 0.9rem;
+            }
+    
+            .about h2 {
+                font-size: 1.2rem;
+            }
+    
+            .about p {
+                font-size: 0.8rem;
+            }
+    
+            .invite-btn {
+                padding: 0.4rem 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
+            <div class="nav-toggle">&#9776;</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="features.html">Features</a></li>
@@ -824,5 +819,13 @@
             <footer>
                 <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
             </footer>
+            <script>
+                const navToggle = document.querySelector('.nav-toggle');
+                const navLinks = document.querySelector('nav ul');
+            
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            </script>
         </body>
         </html>
