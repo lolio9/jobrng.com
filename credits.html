@@ -20,22 +20,23 @@
         .nameplate {
     background-color: #000; /* Dark background */
     color: #fff; /* White text */
-    font-size: 20px; /* Adjust as needed */
-    padding: 10px;
-    margin: 10px 0;
-    border: 5px solid; /* Border width */
-    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1; /* Rainbow border */
-    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Adjust as needed */
+    padding: 8px;
+    margin: 8px 0;
+    border: 3px solid; /* Border width */
+    border-image: linear-gradient(45deg, #ff7f7f, #ffbf7f, #ffff7f, #bfff7f, #7fffff, #7fbfff, #bf7fff) 1; /* Subtle rainbow border */
+    border-radius: 5px; /* Rounded corners */
     text-align: center;
+    transition: border-image 0.5s ease-in-out; /* Smooth transition */
 }
 
-@keyframes rainbowBorder {
-    0% { border-image-source: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
-    100% { border-image-source: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red); }
+@keyframes subtleRainbowBorder {
+    0% { border-image-source: linear-gradient(45deg, #ff7f7f, #ffbf7f, #ffff7f, #bfff7f, #7fffff, #7fbfff, #bf7fff); }
+    100% { border-image-source: linear-gradient(45deg, #bf7fff, #7fbfff, #7fffff, #bfff7f, #ffff7f, #ffbf7f, #ff7f7f); }
 }
 
 .nameplate:hover {
-    animation: rainbowBorder 3s linear infinite; /* Animated border on hover */
+    animation: subtleRainbowBorder 5s linear infinite; /* Subtle animated border on hover */
 }
 
 
