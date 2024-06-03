@@ -16,6 +16,29 @@
             100% { color: purple; }
         }
 
+
+        .nameplate {
+    background-color: #000; /* Dark background */
+    color: #fff; /* White text */
+    font-size: 20px; /* Adjust as needed */
+    padding: 10px;
+    margin: 10px 0;
+    border: 5px solid; /* Border width */
+    border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1; /* Rainbow border */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+}
+
+@keyframes rainbowBorder {
+    0% { border-image-source: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); }
+    100% { border-image-source: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red); }
+}
+
+.nameplate:hover {
+    animation: rainbowBorder 3s linear infinite; /* Animated border on hover */
+}
+
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -228,11 +251,12 @@
     </header>
     <main>
         <section class="credits">
+
             <h2>Credits</h2>
             <h3>Development Team</h3>
             <ul>
-                <li class="developer rainbow">lolio1</li>
-                <li class="developer rainbow">anna_wowow</li>
+                <div class="nameplate">lolio1</div>
+<div class="nameplate">anna_wowow</div>
             </ul>
             <p>Our developers work tirelessly to bring new features and maintain the bot. If you're interested in joining our development team, please contact us through our <a href="contact.html">contact page</a> with your portfolio and experience.</p>
 
