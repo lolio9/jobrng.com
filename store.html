@@ -334,7 +334,6 @@
 <body>
     <header>
         <nav>
-            <div class="nav-toggle">&#9776;</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="features.html">Features</a></li>
@@ -534,14 +533,6 @@
         function closeCart() {
             cartElement.style.display = 'none';
         }
-    </script>
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('nav ul');
-    
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
     </script>
 </body>
 </html>
