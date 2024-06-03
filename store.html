@@ -26,7 +26,6 @@
             background-color: #333;
             color: #fff;
             padding: 1rem 0;
-            position: relative;
         }
 
         nav {
@@ -36,12 +35,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
-        }
-
-        .nav-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
         }
 
         nav ul {
@@ -63,31 +56,6 @@
         nav ul li a:hover {
             background-color: #555;
             color: #00acee;
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                display: none;
-                width: 100%;
-                background-color: #333;
-                position: absolute;
-                top: 60px;
-                left: 0;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li a {
-                padding: 1rem;
-                text-align: center;
-            }
         }
 
         .container {
@@ -360,5 +328,220 @@
         .checkout-btn:hover {
             background-color: #00e69b;
         }
+
     </style>
 </head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-toggle">&#9776;</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="commands.html">Commands</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="store.html">Store</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 class="section-title">One-Time Items</h2>
+        <div class="items">
+            <div class="item" data-item="Job Pack">
+                <h3>Job Pack</h3>
+                <div class="price">$4.99</div>
+                <button class="btn buy-now">Buy Now</button>
+            </div>
+            <div class="item" data-item="Money Pack">
+                <h3>Money Pack</h3>
+                <div class="price">$9.99</div>
+                <button class="btn buy-now">Buy Now</button>
+            </div>
+            <div class="item" data-item="Starter Pack">
+                <h3>Starter Pack</h3>
+                <div class="price">$14.99</div>
+                <button class="btn buy-now">Buy Now</button>
+            </div>
+        </div>
+        <h2 class="section-title">Subscriptions</h2>
+        <div class="subscriptions">
+            <div class="subscription" data-item="Basic Subscription">
+                <h3>Basic Subscription</h3>
+                <div class="price">$2.99 per month</div>
+                <button class="btn buy-now">Subscribe Now</button>
+            </div>
+            <div class="subscription" data-item="Pro Subscription">
+                <h3>Pro Subscription</h3>
+                <div class="price">$5.99 per month</div>
+                <button class="btn buy-now">Subscribe Now</button>
+            </div>
+            <div class="subscription" data-item="Elite Subscription">
+                <h3>Elite Subscription</h3>
+                <div class="price">$9.99 per month</div>
+                <button class="btn buy-now">Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+    <button id="cart-button">Cart (<span id="cart-count">0</span>)</button>
+    <div id="cart" class="cart">
+        <div id="cart-content">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" onclick="closeCart()">X</button>
+            </div>
+            <div id="cart-items"></div>
+            <div class="total">TOTAL: $0.00</div>
+            <button id="checkout-button">Checkout</button>
+        </div>
+    </div>
+    <div id="checkout" class="checkout">
+        <div class="checkout-container">
+            <h2>Checkout</h2>
+            <form>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Expiration Date</label>
+                    <input type="text" id="expiry-date" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123">
+                </div>
+                <button type="submit" class="checkout-btn">Buy Now</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        let cart = {};
+        const prices = {
+            'Job Pack': 4.99,
+            'Money Pack': 9.99,
+            'Starter Pack': 14.99,
+            'Basic Subscription': 2.99,
+            'Pro Subscription': 5.99,
+            'Elite Subscription': 9.99
+        };
+
+        const cartButton = document.getElementById('cart-button');
+        const cartElement = document.getElementById('cart');
+        const cartContentElement = document.getElementById('cart-content');
+        const cartItemsElement = document.getElementById('cart-items');
+        const cartCountElement = document.getElementById('cart-count');
+        const checkoutButton = document.getElementById('checkout-button');
+        const checkoutElement = document.getElementById('checkout');
+        const finalBuyButton = document.getElementById('final-buy-button');
+        const totalElement = document.querySelector('.total');
+
+        document.querySelectorAll('.buy-now').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const item = event.target.closest('.item, .subscription').dataset.item;
+                if (cart[item]) {
+                    cart[item]++;
+                } else {
+                    cart[item] = 1;
+                }
+                updateCart();
+                // Animation
+                const rect = event.target.getBoundingClientRect();
+                const cartRect = cartButton.getBoundingClientRect();
+                const clone = event.target.cloneNode(true);
+                document.body.appendChild(clone);
+                clone.style.position = 'absolute';
+                clone.style.left = `${rect.left}px`;
+                clone.style.top = `${rect.top}px`;
+                clone.style.transition = 'all 0.5s ease-in-out';
+                setTimeout(() => {
+                    clone.style.left = `${cartRect.left}px`;
+                    clone.style.top = `${cartRect.top}px`;
+                    clone.style.transform = 'scale(0)';
+                    clone.style.opacity = '0';
+                }, 10);
+                setTimeout(() => {
+                    document.body.removeChild(clone);
+                }, 510);
+            });
+        });
+
+        cartButton.addEventListener('click', () => {
+            cartElement.style.display = 'flex';
+            renderCartItems();
+        });
+
+        checkoutButton.addEventListener('click', () => {
+            checkoutElement.style.display = 'block';
+            document.body.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            cartElement.style.display = 'none';
+        });
+
+        finalBuyButton.addEventListener('click', () => {
+            alert('Redirecting to bank for payment');
+            // Insert actual payment logic here
+        });
+
+        function updateCart() {
+            const itemCount = Object.values(cart).reduce((acc, count) => acc + count, 0);
+            cartCountElement.textContent = itemCount;
+            renderCartItems();
+            updateTotal();
+        }
+
+        function renderCartItems() {
+            cartItemsElement.innerHTML = '';
+            for (const [item, count] of Object.entries(cart)) {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.textContent = `${item}`;
+                const countSelect = document.createElement('select');
+                for (let i = 0; i <= 100; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = i;
+                    if (i === count) option.selected = true;
+                    countSelect.appendChild(option);
+                }
+                countSelect.addEventListener('change', (event) => {
+                    const newCount = parseInt(event.target.value);
+                    if (newCount === 0) {
+                        delete cart[item];
+                    } else {
+                        cart[item] = newCount;
+                    }
+                    updateCart();
+                });
+                cartItem.appendChild(countSelect);
+                cartItemsElement.appendChild(cartItem);
+            }
+        }
+
+        function updateTotal() {
+            let total = 0;
+            for (const [item, count] of Object.entries(cart)) {
+                total += prices[item] * count;
+            }
+            totalElement.textContent = `TOTAL: $${total.toFixed(2)}`;
+        }
+
+        function closeCart() {
+            cartElement.style.display = 'none';
+        }
+    </script>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('nav ul');
+    
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
