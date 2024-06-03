@@ -859,5 +859,13 @@
             <footer>
                 <p>© 2024 Discord Job Bot. All rights reserved. | <a href="#">Privacy Policy</a></p>
             </footer>
+            <script>
+                const navToggle = document.querySelector('.nav-toggle');
+                const navLinks = document.querySelector('nav ul');
+        
+                navToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            </script>
         </body>
         </html>
