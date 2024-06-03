@@ -30,14 +30,11 @@
     transition: border-image 0.5s ease-in-out; /* Smooth transition */
 }
 
-@keyframes subtleRainbowBorder {
-    0% { border-image-source: linear-gradient(45deg, #ff7f7f, #ffbf7f, #ffff7f, #bfff7f, #7fffff, #7fbfff, #bf7fff); }
-    100% { border-image-source: linear-gradient(45deg, #bf7fff, #7fbfff, #7fffff, #bfff7f, #ffff7f, #ffbf7f, #ff7f7f); }
+.nameplate:hover {
+    background-color: #111; /* Slightly lighter background on hover */
+    border-color: #fff; /* Change border color on hover */
 }
 
-.nameplate:hover {
-    animation: subtleRainbowBorder 5s linear infinite; /* Subtle animated border on hover */
-}
 
 
         body {
